@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title> NBME EXAM -BLOCK 2 Results  </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="css/style.css">
+	
+
+	</head>
+	<body>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section"> NBME EXAM -BLOCK 2 Results Table </h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="table-wrap">
+						<table class="table">
+						  <thead class="thead-primary">
+						    <tr>
+						      
+						      <th>Question Number </th>
+						      <th>Answer </th>
+						      
+						    </tr>
+						  </thead>
+						  <tbody>
+						  
+						   
+						  </tbody>
+						</table>
+
+						<div class="score-container hide">
+							
+							<button class="btn btn-primary" id="restart">Restart</button>
+						  </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="js/jquery.min.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+
+	</body>
+
+	<script>
+		const list = document.getElementsByTagName("tbody")[0]
+		
+		if(localStorage.length > 0){
+			for(var i=54; i<104; i++) {
+			
+   				 var key =i;
+    				var value =localStorage.getItem(i);
+					var newRow = list.insertRow();
+					// add question number 
+					
+				var newCell = newRow.insertCell();
+			var newText = document.createTextNode(key);
+			newCell.appendChild(newText);
+
+			//add answers number
+			var newCell2 = newRow.insertCell();
+			var newText2 = document.createTextNode(value);
+			newCell2.appendChild(newText2);
+      
+   }
+  
+		
+		}
+		
+		var restartButton=document.getElementById("restart")
+
+		restartButton.addEventListener("click",()=>{
+			localStorage.clear();
+			window.location.href = "../index.html";
+		})
+		</script>
+
+</html>
+
